@@ -4,16 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homenaje a Juan Julio Silva Regalado Mi Querido Papá</title>
+    <title>Homenaje a Juan Julio Silva Regalado</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto&display=swap" rel="stylesheet">
 </head>
+
 <body>
+    <div class="portada">
+        <img src="images/portada.jpg" alt="Foto de portada">
+    </div>
+
     <header>
         <h1>Juan Julio Silva Regalado</h1>
-        <p class="fechas">1944 – 2028</p>
+        <p class="fechas">1944 – 2025</p>
         <p class="frase">"Julio Silva Regalado un padre de valores firmes y reflejo de amor, esfuerzo y sacrificio hacia su familia..."</p>
     </header>
 
@@ -95,5 +100,14 @@
     </footer>
 
     <script src="script.js"></script>
+
+<script>
+function scrollGallery(direction) {
+    const container = document.getElementById('gallery-scroll');
+    const scrollAmount = 200;
+    container.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+}
+</script>
 </body>
+
 </html>

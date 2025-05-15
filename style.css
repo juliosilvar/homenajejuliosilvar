@@ -130,3 +130,89 @@ footer a:hover {
     font-weight: bold;
     cursor: pointer;
 }
+
+
+.portada img {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: cover;
+    display: block;
+}
+
+.principal {
+    display: flex;
+    justify-content: center;
+    margin: 2em 0;
+}
+
+.circular {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid white;
+    box-shadow: 0 0 12px rgba(0,0,0,0.2);
+}
+
+
+.gallery-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    margin: 2em 0;
+}
+
+.gallery-scroll {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    gap: 12px;
+    padding: 10px;
+}
+
+.gallery-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.gallery-item {
+    flex: 0 0 auto;
+    width: 160px;
+    text-align: center;
+}
+
+.gallery-item img {
+    width: 100%;
+    border-radius: 8px;
+    transition: transform 0.3s;
+}
+
+.gallery-item img:hover {
+    transform: scale(1.05);
+}
+
+.caption {
+    margin-top: 0.4em;
+    font-size: 0.9em;
+    color: #555;
+}
+
+.scroll-btn {
+    background: rgba(0, 0, 0, 0.6);
+    border: none;
+    color: white;
+    font-size: 2em;
+    cursor: pointer;
+    padding: 0.3em 0.6em;
+    border-radius: 5px;
+    z-index: 1;
+}
+
+.scroll-btn.left {
+    margin-right: 10px;
+}
+
+.scroll-btn.right {
+    margin-left: 10px;
+}
