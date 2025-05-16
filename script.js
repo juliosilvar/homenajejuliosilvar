@@ -28,3 +28,26 @@ document.addEventListener('keydown', function (event) {
     if (event.key === "Escape") closeModal();
   }
 });
+// Swipe táctil
+let touchStartX = 0;
+let touchEndX = 0;
+
+modal.addEventListener('touchstart', function(e) {
+  touchStartX = e.changedTouches[0].screenX;
+}, false);
+
+modal.addEventListener('touchend', function(e) {
+  touchEndX = e.changedTouches[0].screenX;
+  handleSwipeGesture();
+}, false);
+
+function handleSwipeGesture() {
+  const swipeDistance = touchEndX - touchStartX;
+  if (Math.abs(swipeDistance) > 50) {
+    if (swipeDistance > 0) {
+      navigateImage(-1); // Swipe derecha
+    } else {
+      navigateImage(1);  // Swipe izquierda
+    }
+  }
+}
