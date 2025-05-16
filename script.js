@@ -21,3 +21,16 @@ function cambiarImagen(offset) {
 function cerrarModal() {
   document.getElementById("modal").style.display = "none";
 }
+
+
+document.addEventListener('keydown', function(event) {
+    if (modal.style.display === "block") {
+        if (event.key === "ArrowRight") {
+            nextImage();
+        } else if (event.key === "ArrowLeft") {
+            prevImage();
+        } else if (event.key === "Escape") {
+            modal.style.display = "none";
+        }
+    }
+});
