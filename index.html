@@ -29,17 +29,27 @@
     <main>
         <section class="media">
             <h2>Galería de Fotos</h2>
-    <div class="gallery-scroll">
-  <img src="images/foto1.jpg" alt="Foto 1" onclick="openModal(this)">
-  <img src="images/foto2.jpg" alt="Foto 2" onclick="openModal(this)">
-  <img src="images/foto3.jpg" alt="Foto 3" onclick="openModal(this)">
-  <img src="images/foto4.jpg" alt="Foto 4" onclick="openModal(this)">
-  <img src="images/foto5.jpg" alt="Foto 5" onclick="openModal(this)">
-  <img src="images/foto6.jpg" alt="Foto 6" onclick="openModal(this)">
-  <img src="images/foto7.jpg" alt="Foto 7" onclick="openModal(this)">
-  <img src="images/foto8.jpg" alt="Foto 8" onclick="openModal(this)">
-  <!-- Las demás imágenes se pueden agregar si deseas -->
+<div class="gallery-scroll" id="gallery-scroll">
+  <img src="images/foto1.jpg" alt="Foto 1" onclick="openModal(0)">
+  <img src="images/foto2.jpg" alt="Foto 2" onclick="openModal(1)">
+  <img src="images/foto3.jpg" alt="Foto 3" onclick="openModal(2)">
+  <img src="images/foto4.jpg" alt="Foto 4" onclick="openModal(3)">
+  <img src="images/foto5.jpg" alt="Foto 5" onclick="openModal(4)">
+  <img src="images/foto6.jpg" alt="Foto 6" onclick="openModal(5)">
+  <img src="images/foto7.jpg" alt="Foto 7" onclick="openModal(6)">
+  <img src="images/foto8.jpg" alt="Foto 8" onclick="openModal(7)">
 </div>
+
+<div style="text-align: center; margin: 1em 0;">
+  <button onclick="mostrarMasImagenes()">Ver más imágenes</button>
+</div>
+
+<div class="gallery-scroll" id="imagenes-ocultas" style="display: none;">
+  <img src="images/foto9.jpg" alt="Foto 9" onclick="openModal(8)">
+  <img src="images/foto10.jpg" alt="Foto 10" onclick="openModal(9)">
+  <!-- continúa agregando hasta la 50 -->
+</div>
+
 
         </section>
 
@@ -56,20 +66,45 @@
         <span class="close">&times;</span>
         <img class="modal-content" id="modal-img">
     </div>
+<div class="modal-controls">
+  <span onclick="cambiarImagen(-1)">←</span>
+  <span onclick="cambiarImagen(1)">→</span>
+</div>
 
     <footer>
         <p>Ubicación: <a href="https://maps.app.goo.gl/AJyR7onPkLN6XjN39" target="_blank">Jardines de la esperanza Campo Santo</a></p>
     </footer>
 
-    <script src="script.js"></script>
-
 <script>
-function scrollGallery(direction) {
-    const container = document.getElementById('gallery-scroll');
-    const scrollAmount = 200;
-    container.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+let imagenes = [];
+document.addEventListener("DOMContentLoaded", () => {
+  imagenes = Array.from(document.querySelectorAll('.gallery-scroll img'));
+});
+
+let modalIndex = 0;
+
+function openModal(index) {
+  modalIndex = index;
+  const modal = document.getElementById("modal");
+  const modalImg = document.getElementById("modal-img");
+  modal.style.display = "block";
+  modalImg.src = imagenes[modalIndex].src;
+}
+
+function cambiarImagen(offset) {
+  modalIndex = (modalIndex + offset + imagenes.length) % imagenes.length;
+  document.getElementById("modal-img").src = imagenes[modalIndex].src;
+}
+
+function mostrarMasImagenes() {
+  const ocultas = document.querySelectorAll('#imagenes-ocultas img');
+  const scroll = document.getElementById("gallery-scroll");
+  ocultas.forEach(img => scroll.appendChild(img));
+  document.getElementById("imagenes-ocultas").remove();
+  imagenes = Array.from(document.querySelectorAll('.gallery-scroll img'));
 }
 </script>
+
 </body>
 
 </html>
