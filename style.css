@@ -216,3 +216,45 @@ footer a:hover {
 .scroll-btn.right {
     margin-left: 10px;
 }
+.gallery-scroll {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 10px;
+  padding: 10px 0;
+}
+
+.gallery-scroll img {
+  flex: 0 0 auto;
+  width: 48%;
+  max-width: 300px;
+  scroll-snap-align: start;
+  border-radius: 8px;
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.gallery-scroll img:hover {
+  transform: scale(1.03);
+}
+
+.gallery-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+.gallery-scroll::-webkit-scrollbar-thumb {
+  background: #bbb;
+  border-radius: 10px;
+}
+
+/* Más imágenes por vista en pantallas grandes */
+@media (min-width: 768px) {
+  .gallery-scroll img {
+    width: 30%;
+  }
+}
+@media (min-width: 1024px) {
+  .gallery-scroll img {
+    width: 22%;
+  }
+}
