@@ -1,86 +1,66 @@
 
 body {
-  font-family: 'Roboto', sans-serif;
-  margin: 0;
-  background-color: #f9f9f9;
-  color: #333;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
 }
-
-header {
-  text-align: center;
-  padding: 1rem;
-}
-
 .gallery-scroll {
-  display: flex;
-  overflow-x: auto;
-  gap: 0.5rem;
-  padding: 1rem;
-  scroll-snap-type: x mandatory;
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 10px;
+    padding: 10px;
 }
-
 .gallery-scroll img {
-  height: 150px;
-  cursor: pointer;
-  scroll-snap-align: start;
-  flex: 0 0 auto;
-}
-
-.video-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
-  padding: 1rem;
-}
-
-.video-wrapper iframe {
-  width: 100%;
-  max-width: 480px;
-  aspect-ratio: 16/9;
+    height: 150px;
+    cursor: pointer;
+    scroll-snap-align: center;
+    border-radius: 8px;
 }
 
 .modal {
-  display: none;
-  position: fixed;
-  z-index: 999;
-  left: 0; top: 0; width: 100%; height: 100%;
-  background-color: rgba(0,0,0,0.9);
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.9);
 }
-
 .modal-content {
-  max-width: 90%;
-  max-height: 80%;
-  object-fit: contain;
+    display: block;
+    margin: auto;
+    max-width: 90%;
+    max-height: 80%;
 }
-
 .close {
-  position: absolute;
-  top: 20px; right: 30px;
-  font-size: 40px;
-  color: white;
-  cursor: pointer;
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
 }
-
-.nav {
-  position: absolute;
-  top: 50%;
-  font-size: 50px;
-  color: white;
-  cursor: pointer;
-  user-select: none;
-  transform: translateY(-50%);
-  padding: 10px;
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+    transition: 0.3s;
+    user-select: none;
 }
-
-.nav.left { left: 20px; }
-.nav.right { right: 20px; }
-
-@media (min-width: 600px) {
-  .gallery-scroll img {
-    height: 200px;
-  }
+.prev {
+    left: 10px;
+}
+.next {
+    right: 10px;
 }
