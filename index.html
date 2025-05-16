@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -10,7 +9,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto&display=swap" rel="stylesheet">
 </head>
-
 <body>
     <div class="portada">
         <img src="images/portada.jpg" alt="Foto de portada">
@@ -18,39 +16,23 @@
 
     <header>
         <h1>Juan Julio Silva Regalado</h1>
-<<<<<<< HEAD
         <p class="fechas">1944 – 2025</p>
-=======
-        <p class="fechas">1944 – 2024</p>
->>>>>>> ba243dcf2c9cb94e1b6cea0b8634d2ec56f62e34
         <p class="frase">"Julio Silva Regalado un padre de valores firmes y reflejo de amor, esfuerzo y sacrificio hacia su familia..."</p>
     </header>
 
     <main>
         <section class="media">
             <h2>Galería de Fotos</h2>
-<div class="gallery-scroll" id="gallery-scroll">
-  <img src="images/foto1.jpg" alt="Foto 1" onclick="openModal(0)">
-  <img src="images/foto2.jpg" alt="Foto 2" onclick="openModal(1)">
-  <img src="images/foto3.jpg" alt="Foto 3" onclick="openModal(2)">
-  <img src="images/foto4.jpg" alt="Foto 4" onclick="openModal(3)">
-  <img src="images/foto5.jpg" alt="Foto 5" onclick="openModal(4)">
-  <img src="images/foto6.jpg" alt="Foto 6" onclick="openModal(5)">
-  <img src="images/foto7.jpg" alt="Foto 7" onclick="openModal(6)">
-  <img src="images/foto8.jpg" alt="Foto 8" onclick="openModal(7)">
-</div>
-
-<div style="text-align: center; margin: 1em 0;">
-  <button onclick="mostrarMasImagenes()">Ver más imágenes</button>
-</div>
-
-<div class="gallery-scroll" id="imagenes-ocultas" style="display: none;">
-  <img src="images/foto9.jpg" alt="Foto 9" onclick="openModal(8)">
-  <img src="images/foto10.jpg" alt="Foto 10" onclick="openModal(9)">
-  <!-- continúa agregando hasta la 50 -->
-</div>
-
-
+            <div class="gallery-scroll">
+                <img src="images/foto1.jpg" alt="Foto 1" onclick="openModal(0)">
+                <img src="images/foto2.jpg" alt="Foto 2" onclick="openModal(1)">
+                <img src="images/foto3.jpg" alt="Foto 3" onclick="openModal(2)">
+                <img src="images/foto4.jpg" alt="Foto 4" onclick="openModal(3)">
+                <img src="images/foto5.jpg" alt="Foto 5" onclick="openModal(4)">
+                <img src="images/foto6.jpg" alt="Foto 6" onclick="openModal(5)">
+                <img src="images/foto7.jpg" alt="Foto 7" onclick="openModal(6)">
+                <img src="images/foto8.jpg" alt="Foto 8" onclick="openModal(7)">
+            </div>
         </section>
 
         <section class="videos">
@@ -62,57 +44,19 @@
         </section>
     </main>
 
-<div id="modal" class="modal">
-  <span class="close" onclick="cerrarModal()">&times;</span>
-  <img class="modal-content" id="modal-img">
-  <div class="modal-controls">
-    <span class="arrow left" onclick="cambiarImagen(-1)">&#10094;</span>
-    <span class="arrow right" onclick="cambiarImagen(1)">&#10095;</span>
-  </div>
-</div>
-
-<div class="modal-controls">
-  <span onclick="cambiarImagen(-1)">←</span>
-  <span onclick="cambiarImagen(1)">→</span>
-</div>
+    <div id="modal" class="modal">
+        <span class="close" onclick="cerrarModal()">&times;</span>
+        <img class="modal-content" id="modal-img">
+        <div class="modal-controls">
+            <span class="arrow left" onclick="cambiarImagen(-1)">&#10094;</span>
+            <span class="arrow right" onclick="cambiarImagen(1)">&#10095;</span>
+        </div>
+    </div>
 
     <footer>
         <p>Ubicación: <a href="https://maps.app.goo.gl/AJyR7onPkLN6XjN39" target="_blank">Jardines de la esperanza Campo Santo</a></p>
     </footer>
 
-<script>
-let imagenes = [];
-let modalIndex = 0;
-
-document.addEventListener("DOMContentLoaded", () => {
-  imagenes = Array.from(document.querySelectorAll('.gallery-scroll img'));
-});
-
-function openModal(index) {
-  modalIndex = index;
-  const modal = document.getElementById("modal");
-  const modalImg = document.getElementById("modal-img");
-  modal.style.display = "flex";
-  modalImg.src = imagenes[modalIndex].src;
-}
-
-function cambiarImagen(offset) {
-  modalIndex = (modalIndex + offset + imagenes.length) % imagenes.length;
-  document.getElementById("modal-img").src = imagenes[modalIndex].src;
-}
-
-function cerrarModal() {
-  document.getElementById("modal").style.display = "none";
-}
-
-function mostrarMasImagenes() {
-  const ocultas = document.querySelectorAll('#imagenes-ocultas img');
-  const scroll = document.getElementById("gallery-scroll");
-  ocultas.forEach(img => scroll.appendChild(img));
-  document.getElementById("imagenes-ocultas").remove();
-  imagenes = Array.from(document.querySelectorAll('.gallery-scroll img'));
-}
-</script>
+    <script src="script.js"></script>
 </body>
-
 </html>
