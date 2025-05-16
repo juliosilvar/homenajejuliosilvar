@@ -1,36 +1,30 @@
-let imagenes = [];
-let modalIndex = 0;
+let currentIndex = 0;
+const images = document.querySelectorAll('.gallery-scroll img');
+const modal = document.getElementById('modal');
+const modalImg = document.getElementById('modal-img');
 
-document.addEventListener("DOMContentLoaded", () => {
-  imagenes = Array.from(document.querySelectorAll('.gallery-scroll img'));
-});
-
-function openModal(index) {
-  modalIndex = index;
-  const modal = document.getElementById("modal");
-  const modalImg = document.getElementById("modal-img");
-  modal.style.display = "flex";
-  modalImg.src = imagenes[modalIndex].src;
+function openModal(imgElement) {
+  modal.style.display = "block";
+  modalImg.src = imgElement.src;
+  currentIndex = Array.from(images).indexOf(imgElement);
 }
 
-function cambiarImagen(offset) {
-  modalIndex = (modalIndex + offset + imagenes.length) % imagenes.length;
-  document.getElementById("modal-img").src = imagenes[modalIndex].src;
+function closeModal() {
+  modal.style.display = "none";
 }
 
-function cerrarModal() {
-  document.getElementById("modal").style.display = "none";
+function navigateImage(direction) {
+  currentIndex += direction;
+  if (currentIndex < 0) currentIndex = images.length - 1;
+  if (currentIndex >= images.length) currentIndex = 0;
+  modalImg.src = images[currentIndex].src;
 }
 
-
-document.addEventListener('keydown', function(event) {
-    if (modal.style.display === "block") {
-        if (event.key === "ArrowRight") {
-            nextImage();
-        } else if (event.key === "ArrowLeft") {
-            prevImage();
-        } else if (event.key === "Escape") {
-            modal.style.display = "none";
-        }
-    }
+// Soporte para teclado
+document.addEventListener('keydown', function (event) {
+  if (modal.style.display === "block") {
+    if (event.key === "ArrowLeft") navigateImage(-1);
+    if (event.key === "ArrowRight") navigateImage(1);
+    if (event.key === "Escape") closeModal();
+  }
 });
